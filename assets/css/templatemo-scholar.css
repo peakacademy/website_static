@@ -670,7 +670,8 @@ Banner Style
 */
 
 .main-banner {
-  background-image: url(../images/banner-bg.jpg);
+  /* background-image: url(../images/banner-bg.jpg); */
+  background: #0e3b65;
   background-position: right bottom;
   background-repeat: no-repeat;
   background-size: cover;
