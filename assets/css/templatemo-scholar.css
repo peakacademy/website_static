@@ -163,7 +163,7 @@ body {
 
 .main-button a {
   display: inline-block;
-  background-color: #fff;
+  background-color: #f4d45d;
   color: #0e3b65;
   font-size: 14px;
   font-weight: 500;
@@ -176,7 +176,7 @@ body {
 
 .main-button a:hover {
   background-color: #0e3b65;
-  color: #fff;
+  color: #f4d45d;
 }
 
 /* 
@@ -331,7 +331,7 @@ Header Style
 .header-area .main-nav .logo h1 {
   font-size: 36px;
   text-transform: uppercase;
-  color: #fff;
+  color: #f4d45d;
   font-weight: 600;
   margin-right: 20px;
   padding-right: 20px;
