@@ -1673,16 +1673,22 @@ Contact Style
 }
 
 .whatsapp-button {
+  height: 40px;
+  width: 40px;
   display: inline-flex;
   align-items: center;
   background-color: #25D366;
   color: white;
-  padding: 10px 15px;
+  /* padding: 10px 15px; */
   border-radius: 50px;
   font-size: 16px;
   text-decoration: none;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-button svg{
+  margin: 0px 0px 0px 12px
 }
 
 .whatsapp-button:hover {
@@ -1740,6 +1746,46 @@ footer::before {
   z-index: 2;
 }
 
+
+/* contact container */
+.contact-container{
+  font-size: 13px;
+}
+.contact-element{
+  display:flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.contact-elememt-whatspp{
+  text-decoration: none !important;
+  color: #474242;
+}
+.contact-elememt-whatspp svg{
+  color:#25D366;
+  margin-top: -3px;
+    padding-left: 1px;
+    margin-left: 1px;
+
+}
+.contact-element:last-child{
+  padding-top : 10px;
+}
+.contact-element:last-child a:hover {
+  /* background-color: #25D36620; light WhatsApp green with transparency */
+  color: #25D366; /* WhatsApp green text */
+}
+
+.testimonial-sub-head{
+  padding-top: 15px;
+}
+.testimonial-para{
+  font-size: 14px;
+  line-height: 28px;
+  color: #4a4a4a;
+}
+.testimonial-para:last-child{
+  padding-top: 15px;
+}
 /* 
 ---------------------------------------------
 Responsive Style
