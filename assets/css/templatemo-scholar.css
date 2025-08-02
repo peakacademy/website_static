@@ -123,6 +123,20 @@ body {
   width: max-content;
   margin-top: 21px;
 }
+
+@keyframes zoomInOut {
+  0%, 100% {
+    transform: scale(0.9);  /* Zoomed out */
+  }
+  50% {
+    transform: scale(1.2);  /* Zoomed in more */
+  }
+}
+
+.logo-zoom {
+  animation: zoomInOut 2s ease-in-out infinite;
+  transition: transform 0.3s ease-in-out;
+}
 ::selection {
   background: #0e3b65;
   color: #fff;
@@ -1700,6 +1714,154 @@ Contact Style
   height: 24px;
   /* margin-right: 10px; */
 }
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 90px;
+  width: 60px;
+  height: 60px;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dialog styles */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Ensure it's on top */
+  padding: 1rem; /* optional: gives breathing room on small screens */
+}
+
+.dialog-box {
+  background-color: white;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  max-height: 90vh; /* restrict height */
+  overflow-y: auto; /* enable scroll */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.dialog-box h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.dialog-box p {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+
+.loader-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* centers horizontally */
+  justify-content: flex-start;
+  padding-top: 40px;       /* add top space */
+  text-align: center;
+}
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #00bcd4;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+
+.form-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+textarea,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.submit-button {
+  background-color: #00c9a7;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.close-button {
+  background-color: #6c2dc7;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  flex: 1;
+}
+
 /* 
 ---------------------------------------------
 Footer Style
