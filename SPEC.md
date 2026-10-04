@@ -98,3 +98,7 @@ On phones the carousel card is capped around 460px and uses the screen height, i
 - SAP FICO uses `assets/images/event-sap-fico.jpg`.
 - SAP MM uses `assets/images/event-sap-mm.jpg`.
 - SAP Data Services uses `assets/images/event-sap-data-services.jpg`.
+
+### 13. SAP FICO Consultant photo
+
+Bhargavi Setty’s testimonial uses `assets/images/testimonial-bhargavi-setty.jpg`.

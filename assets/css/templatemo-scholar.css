@@ -1349,7 +1349,11 @@ Testimonials Style
 
 .testimonials .item img {
   border-radius: 50%;
+  width: 100px;
+  height: 100px;
   max-width: 100px;
+  object-fit: cover;
+  object-position: center 15%;
   float: left;
   margin-right: 25px;
 }
