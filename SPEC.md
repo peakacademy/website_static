@@ -102,3 +102,7 @@ On phones the carousel card is capped around 460px and uses the screen height, i
 ### 13. SAP FICO Consultant photo
 
 Bhargavi Setty’s testimonial uses `assets/images/testimonial-bhargavi-setty.jpg`.
+
+### 14. Mobile course card alignment
+
+On screens under 992px, the Latest Courses cards stack in normal order. The masonry layout no longer places them on top of each other.

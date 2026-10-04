@@ -1968,6 +1968,21 @@ body {
   .courses {
     margin-top: 100px;
   }
+  .courses .event_box {
+    height: auto !important;
+  }
+  .courses .event_outer {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100% !important;
+  }
+  .courses .events_item .thumb img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
   .event_filter ul li {
     display: block;
     margin: 12px 5px;
