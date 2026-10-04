@@ -23,14 +23,16 @@
 	})
 
 	var width = $(window).width();
-		$(window).resize(function() {
-		if (width > 767 && $(window).width() < 767) {
-			location.reload();
+	$(window).resize(function() {
+		var nextWidth = $(window).width();
+		if ((width > 767 && nextWidth < 767) || (width < 767 && nextWidth > 767)) {
+			$('.header-area .main-nav .nav').css('display', '');
+			if (nextWidth > 767) {
+				$('.menu-trigger').removeClass('active');
+			}
 		}
-		else if (width < 767 && $(window).width() > 767) {
-			location.reload();
-		}
-	})
+		width = nextWidth;
+	});
 
 	const elem = document.querySelector('.event_box');
 	const filtersElem = document.querySelector('.event_filter');
@@ -56,10 +58,63 @@
 	}
 
 
-	$('.owl-banner').owlCarousel({
+	var $banner = $('.owl-banner');
+	var bannerVideoPlay = 'https://www.youtube.com/embed/PBpUExddECs?autoplay=1&mute=1&rel=0&playsinline=1&modestbranding=1';
+
+	function syncBannerVideo() {
+		var slideHeight = $banner.find('.item-1').first().outerHeight();
+		if (slideHeight) {
+			$banner.find('.item-video').css('height', slideHeight);
+		}
+		$banner.find('.banner-video iframe').each(function () {
+			var frame = $(this);
+			var active = frame.closest('.owl-item').hasClass('active');
+			var nextSrc = active ? bannerVideoPlay : 'about:blank';
+			if (frame.attr('src') !== nextSrc) {
+				frame.attr('src', nextSrc);
+			}
+		});
+	}
+
+	function rememberCarouselIndex($carousel) {
+		var position = 0;
+
+		$carousel.on('changed.owl.carousel', function (event) {
+			if (!event.namespace || !event.property || event.property.name !== 'position') {
+				return;
+			}
+			var relative = event.relatedTarget.relative(event.property.value);
+			if (relative >= 0) {
+				position = relative;
+			}
+		});
+
+		$carousel.on('resized.owl.carousel', function (event) {
+			var owl = event.relatedTarget;
+			if (!owl || owl.relative(owl.current()) === position) {
+				return;
+			}
+			$carousel.trigger('to.owl.carousel', [position, 0]);
+		});
+	}
+
+	$(window).on('resize', function () {
+		window.setTimeout(syncBannerVideo, 100);
+	});
+
+	$banner.on('initialized.owl.carousel translated.owl.carousel changed.owl.carousel', function () {
+		window.setTimeout(syncBannerVideo, 50);
+	});
+	$(document).on('click', '.owl-banner .owl-next, .owl-banner .owl-prev', function () {
+		window.setTimeout(syncBannerVideo, 450);
+	});
+
+	rememberCarouselIndex($banner);
+	$banner.owlCarousel({
 		center: true,
       items:1,
-      loop:true,
+      loop:false,
+      rewind:true,
       nav: true,
 	  navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
       margin:30,
@@ -73,10 +128,15 @@
       }
 	});
 
-	$('.owl-testimonials').owlCarousel({
+	syncBannerVideo();
+
+	var $testimonials = $('.owl-testimonials');
+	rememberCarouselIndex($testimonials);
+	$testimonials.owlCarousel({
 	  center: true,
       items:1,
-      loop:true,
+      loop:false,
+      rewind:true,
       nav: true,
 	  navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
       margin:30,
