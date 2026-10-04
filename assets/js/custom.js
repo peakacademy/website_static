@@ -36,10 +36,22 @@
 
 	const elem = document.querySelector('.event_box');
 	const filtersElem = document.querySelector('.event_filter');
-	if (elem) {
+	if (elem && window.innerWidth >= 992) {
 		const rdn_events_list = new Isotope(elem, {
 			itemSelector: '.event_outer',
 			layoutMode: 'masonry'
+		});
+		var relayoutCourses = function () {
+			if (window.innerWidth < 992) {
+				return;
+			}
+			rdn_events_list.layout();
+		};
+		window.addEventListener('load', relayoutCourses);
+		elem.querySelectorAll('img').forEach(function (img) {
+			if (!img.complete) {
+				img.addEventListener('load', relayoutCourses);
+			}
 		});
 		if (filtersElem) {
 			filtersElem.addEventListener('click', function(event) {
